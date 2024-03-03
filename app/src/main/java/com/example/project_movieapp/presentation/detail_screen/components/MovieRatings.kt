@@ -1,0 +1,43 @@
+package com.example.project_movieapp.presentation.detail_screen.components
+
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.example.project_movieapp.data.dto.Rating
+
+@Composable
+fun MovieRating(
+    rating: List<Rating>
+){
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 6.dp, vertical = 2.dp)
+    ) {
+        Text(
+            text = "Rating",
+            style = TextStyle(
+                fontSize = 18.sp,
+                fontWeight = FontWeight.SemiBold,
+                color = Color(0xFF3559E0),
+                fontFamily = FontFamily.Monospace
+
+            )
+            )
+        rating.forEach { rating: Rating ->
+            Text(
+                text = "${rating.source} (${rating.value})",
+                fontSize = 20.sp
+                )
+        }
+    }
+}
